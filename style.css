@@ -1,0 +1,225 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+:root {
+    --primary_orange: hsl(35, 77%, 62%);
+    --primary_red: hsl(5, 85%, 63%);
+    --neutral_gray: hsl(233, 8%, 79%);
+    --neutral_dark_gray: hsl(236, 13%, 42%);
+    --neutral_dark_blue: hsl(240, 100%, 5%);
+  }
+*{
+    font-family: 'Inter', sans-serif;
+}
+body{
+    min-height: 100vh;
+    margin: auto;
+    padding: 50px 100px;
+}
+a{
+    text-decoration: none;
+    color: hsl(236, 13%, 42%);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a:hover, .suggestion-text a:hover{
+    color: var(--primary_red);
+
+}
+.new-box a{
+    color: #fff;
+}
+.new-box a:hover{
+    color: var(--primary_orange);
+}
+#nav-desktop ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-mobile{
+    display: none;
+}
+main{
+    display: grid;
+    grid-template-areas:
+    'hero aside'
+    'hero aside'
+    'suggest suggest';
+    grid-template-columns: 70% 30% 100%;
+    gap: 40px;
+    align-items: flex-start;
+    margin: 30px auto auto auto;
+}
+h1{
+    font-size: 64px;
+    margin: 0;
+    line-height: 65px;
+    font-weight: 800;
+}
+h2{
+    font-size: 32px;
+}
+h4{
+    margin: 10px auto 15px auto;
+}
+p{
+    color: var(--neutral_gray);
+    margin: 0;
+}
+span{
+    font-size: 24px;
+    color: var(--neutral_gray);
+    font-weight: 700;
+}
+
+.hero { 
+    grid-area: hero; 
+}
+.new{ 
+    grid-area: aside; 
+    background-color: hsl(240, 100%, 5%);
+    padding: 20px;
+    color: #fff;
+}
+.suggestions{ 
+    grid-area: suggest; 
+    width: 100%;
+    justify-content: space-between;
+    margin: 20px auto;
+    align-items: center;
+}
+.hero img{
+    width: 100%;
+}
+.hero-text{
+    display: flex;
+    align-items: flex-start;
+    color: black;
+    margin: 20px auto;
+    justify-content: space-between;
+    gap: 100px;
+}
+.hero-text button{
+    border: none;
+    padding: 10px 20px;
+    background-color: var(--primary_red);
+    color: #fff;
+    width: 167px;
+    height: 44px;
+    margin-top: 15px;
+    letter-spacing: 5px;
+}
+.hero-text button:hover{
+    background-color: black;
+}
+.new h2{
+    color: var(--primary_orange);
+}
+.new-box{
+    border-bottom: thin solid #fff;
+    padding-bottom: 20px;
+}
+.suggestions, .suggestion-box{
+    display: flex;
+}
+.suggestion-box{
+    gap: 20px;
+    width: 370px;
+}
+.suggestion-box img{
+    width: 100px;
+}
+.highlight p{
+    font-weight: 400;
+    color: var(--neutral_gray);
+    line-height: 30px;
+}
+.hamburger{
+    display: none;
+}
+@media screen and (max-width: 375px){
+    body{
+        padding: 20px;
+    }
+    main, .hero-text{
+        display: flex;
+        flex-direction: column;
+    }
+    h1{
+        font-size: 32px;
+        line-height: normal;
+    }
+    .suggestions{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .suggestion-box{
+        width: 100%;
+    }
+    .hero-text{
+        gap: 10px;
+    }
+    #nav-desktop{
+        display: none;
+    }
+    .nav-mobile{
+        display: none;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        z-index: 1;
+        margin-top: 90px;
+    }
+    .nav-mobile.is-active{
+        right: 0;
+        display: block;
+    }
+    .nav-mobile ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .overlay{
+        opacity: 0.5;
+    }
+    .hamburger{
+        position: relative;
+        display: block;
+        width: 35px;
+        height: 5px;
+        cursor: pointer;
+        
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
+    }
+    .hamburger .bar, .hamburger::before, .hamburger::after{
+        content: '';
+        display: block;
+        width: 35px;
+        height: 5px;
+        margin: 6px 0px;
+        transition: 0.4s;
+        background-color: black;
+        position: relative;
+        top: -15px;
+        left: -10px;
+    }
+    .hamburger.is-active::after{
+        transform: rotate(45deg) translate(-9px, -8px);
+    }
+    .hamburger.is-active::before{
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    .hamburger.is-active .bar{
+        opacity: 0;
+    }
+}
